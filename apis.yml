@@ -1,0 +1,130 @@
+aid: deposco
+url: https://raw.githubusercontent.com/api-evangelist/deposco/refs/heads/main/apis.yml
+name: Deposco
+kind: company
+description: Deposco is a cloud supply chain execution platform combining order
+  management (OMS) and warehouse management (WMS) for retailers, brands, 3PLs, and
+  DTC ecommerce sellers. Its Bright Suite gives real-time visibility into inventory,
+  orders, and shipments across the fulfillment lifecycle - receiving, putaway,
+  picking, packing, and shipping. Deposco integrates through a REST API exposed on
+  its Developer Portal (developer.deposco.com) using resource paths under
+  /integration/{code}/, secured with OAuth 2.0 / per-merchant API credentials and
+  scoped by tenant code and business unit. API access is provisioned per customer
+  through a Deposco account manager rather than through open self-service signup,
+  and Deposco also ships 150+ pre-built connectors and EDI integrations.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Supply Chain
+- Warehouse Management
+- WMS
+- Order Management
+- OMS
+- Fulfillment
+- Inventory
+- Logistics
+- Ecommerce
+- 3PL
+created: '2026-07-04'
+modified: '2026-07-04'
+specificationVersion: '0.19'
+apis:
+- aid: deposco:deposco-customer-orders-api
+  name: Deposco Customer Orders API
+  tags:
+  - Orders
+  - Order Management
+  - Fulfillment
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.deposco.com/
+  baseURL: https://{instance}.deposco.com/integration/{code}
+  properties:
+  - url: https://developer.deposco.com/
+    type: Documentation
+  description: Import and query customer (sales) orders for fulfillment. Modeled from
+    Deposco integration references - PUT /import/{businessUnit}/customerOrder/{orderNumber}
+    to create or update an order, and GET /search/CoHeader and /search/shipment to
+    look up order status and resulting shipments. Endpoints are modeled from public
+    integration documentation; exact paths and the tenant base host are provisioned
+    per customer.
+- aid: deposco:deposco-purchase-orders-api
+  name: Deposco Purchase Orders API
+  tags:
+  - Purchase Orders
+  - Procurement
+  - Inbound
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.deposco.com/
+  baseURL: https://{instance}.deposco.com/integration/{code}
+  properties:
+  - url: https://developer.deposco.com/
+    type: Documentation
+  description: Create and search purchase orders for inbound inventory. Modeled from
+    Deposco integration references - PUT /orders/Purchase Order/{orderNumber},
+    POST /orders, and GET /search/Order?otherReferenceNumber={externalOrderNumber}.
+    Endpoints are modeled from public integration documentation; access is gated per
+    tenant.
+- aid: deposco:deposco-items-api
+  name: Deposco Items API
+  tags:
+  - Items
+  - Products
+  - SKU
+  - Catalog
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.deposco.com/
+  baseURL: https://{instance}.deposco.com/integration/{code}
+  properties:
+  - url: https://developer.deposco.com/
+    type: Documentation
+  description: Create and update item (SKU) master data. Modeled from Deposco
+    integration references - PUT /items/{itemNumber} for a single item and
+    POST /items for bulk item imports. Endpoints are modeled from public integration
+    documentation; access is gated per tenant.
+- aid: deposco:deposco-inventory-api
+  name: Deposco Inventory API
+  tags:
+  - Inventory
+  - Stock
+  - Facility
+  - Location
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.deposco.com/
+  baseURL: https://{instance}.deposco.com/integration/{code}
+  properties:
+  - url: https://developer.deposco.com/
+    type: Documentation
+  description: Retrieve real-time inventory by facility and location. Modeled from
+    Deposco integration references - GET /inventory/facility/{facilityNumber}/location/{locationNumber}
+    and GET /inventory/{businessUnit}/facility/{facilityNumber}/location/{locationNumber}.
+    Endpoints are modeled from public integration documentation; access is gated per
+    tenant.
+- aid: deposco:deposco-shipments-api
+  name: Deposco Shipments API
+  tags:
+  - Shipments
+  - Outbound
+  - Shipping
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.deposco.com/
+  baseURL: https://{instance}.deposco.com/integration/{code}
+  properties:
+  - url: https://developer.deposco.com/
+    type: Documentation
+  description: Search outbound shipments produced by fulfillment. Modeled from Deposco
+    integration references - GET /search/shipment?orderHeaders.customerOrderNumber={orderNumber}
+    to retrieve shipment and tracking detail for a customer order. Endpoints are
+    modeled from public integration documentation; access is gated per tenant.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/deposco
+- type: Website
+  url: https://deposco.com/
+- type: Documentation
+  url: https://developer.deposco.com/
+- type: Plans
+  url: plans/deposco-plans-pricing.yml
+- url: https://blog.deposco.com/
+  type: Blog
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

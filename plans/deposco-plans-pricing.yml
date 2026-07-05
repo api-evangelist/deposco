@@ -1,0 +1,42 @@
+aid: deposco
+name: Deposco Plans and Pricing
+description: >-
+  Deposco does not publish public, self-service pricing or a public API pricing
+  page. The platform is sold as a subscription (SaaS) supply chain execution
+  suite through a sales-led motion, with cost scoped to modules (OMS, WMS,
+  Bright Suite components), order/transaction volume, number of facilities, and
+  business units. API access is included with a Deposco subscription and is
+  provisioned per merchant by a Deposco account manager - there is no open,
+  self-service developer tier. Figures below are directional from third-party
+  review sources and should be confirmed with Deposco sales.
+pricingPage: https://deposco.com/
+model: Contact sales / custom quote (subscription SaaS)
+freeTier: false
+selfServiceSignup: false
+apiAccess: >-
+  Included with a Deposco subscription. Credentials (tenant code, API username,
+  API password, business unit) are issued per merchant by a Deposco account
+  manager. Applications and OAuth 2.0 client credentials are managed through the
+  Deposco Developer Portal (developer.deposco.com) once access is granted.
+plans:
+- name: Custom Subscription
+  price: Custom
+  unit: contact sales
+  description: >-
+    Tailored subscription scoped to the modules deployed (order management,
+    warehouse management, and other Bright Suite capabilities), fulfillment
+    volume, facilities, and integrations. Third-party reviews indicate entry
+    pricing commonly starts around $1,000+/month, but Deposco does not confirm
+    public figures.
+  publicPricing: false
+notes: >-
+  Pricing values are directional and sourced from third-party review sites
+  (e.g., SelectHub), not from an official Deposco pricing page. Contact Deposco
+  for an accurate, current quote.
+sources:
+- url: https://deposco.com/
+  note: Deposco requests a demo / contact sales rather than listing prices.
+- url: https://www.selecthub.com/p/warehouse-management-software/deposco/
+  note: Third-party review referencing subscription pricing starting around $1,000+.
+- url: https://developer.deposco.com/
+  note: Developer Portal where OAuth applications and API credentials are managed.

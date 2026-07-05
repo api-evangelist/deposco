@@ -1,0 +1,95 @@
+aid: deposco
+name: Deposco
+review:
+  question: Does Deposco expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-04'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Deposco's integration surface is
+    request/response REST over HTTPS, exposed through the Deposco Developer
+    Portal under resource paths like /integration/{code}/. There is no
+    documented server-push transport (WebSocket or SSE) on Deposco's own API to
+    model. Event-driven integration with Deposco is achieved through polling the
+    REST search endpoints or via partner iPaaS/EDI connectors, not through a
+    Deposco WebSocket.
+findings:
+  summary: |
+    Deposco does not publish a documented public WebSocket API. Deposco is a
+    cloud supply chain execution platform (order management + warehouse
+    management). It exposes a REST API through the Deposco Developer Portal
+    (developer.deposco.com), organized under resource paths beginning
+    /integration/{code}/ and scoped by tenant code and business unit.
+    Authentication is OAuth 2.0 (client ID / client secret provisioned via a
+    Developer Portal application) and/or per-merchant API username/password.
+    The API is request/response REST over HTTPS; no realtime, bidirectional, or
+    streaming WebSocket (ws:// or wss://) endpoint is documented on Deposco's
+    own API as of the review date.
+  accessModel: |
+    Real but gated. Deposco operates a genuine public Developer Portal with API
+    reference documentation, but API access is not open self-service: a customer
+    must have a Deposco subscription and obtain credentials (tenant code, API
+    username, API password, business unit) from a Deposco account manager before
+    the API can be used. The tenant base host is instance-specific and issued
+    per customer. Deposco also offers 150+ pre-built connectors and EDI
+    integrations for teams that do not build directly against the API.
+  endpointsModeled: true
+  endpointsModeledNote: |
+    The logical APIs and endpoints in apis.yml are modeled from publicly visible
+    third-party integration documentation (Techdinamics, DropStream, Extensiv,
+    Parabola) describing real Deposco integration paths. Deposco's authoritative
+    endpoint reference lives behind the Developer Portal and is scoped to each
+    tenant, so exact paths, request/response schemas, and the base host should be
+    confirmed against a provisioned Deposco instance. No OpenAPI document was
+    fabricated for this reason.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://{instance}.deposco.com/integration/{code}
+      documented: true
+      note: Tenant-scoped REST integration API. Base host is provisioned per customer.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented on Deposco's API as of the review date.
+  endpointsModeledRest:
+    - PUT    /integration/{code}/import/{businessUnit}/customerOrder/{orderNumber}
+    - GET    /integration/{code}/search/CoHeader?externalOrderNumber={orderNumber}
+    - GET    /integration/{code}/search/shipment?orderHeaders.customerOrderNumber={orderNumber}
+    - PUT    /integration/{code}/orders/Purchase Order/{orderNumber}
+    - POST   /integration/{code}/orders
+    - GET    /integration/{code}/search/Order?otherReferenceNumber={externalOrderNumber}
+    - PUT    /integration/{code}/items/{itemNumber}
+    - POST   /integration/{code}/items
+    - GET    /integration/{code}/inventory/facility/{facilityNumber}/location/{locationNumber}
+    - GET    /integration/{code}/inventory/{businessUnit}/facility/{facilityNumber}/location/{locationNumber}
+sources:
+  - url: https://developer.deposco.com/
+    type: Documentation
+    note: Official Deposco Developer Portal; OAuth 2.0 application/credential management and API reference (gated).
+  - url: https://deposco.com/
+    type: Website
+    note: Deposco end-to-end WMS + OMS platform; sales-led, contact for demo/pricing.
+  - url: https://support.techdinamics.com/support/solutions/articles/262396-integration-requirements-deposco-wms
+    type: IntegrationGuide
+    note: Third-party integration guide documenting real /integration/{code}/ REST paths for orders, items, inventory, shipments.
+  - url: https://support.getdropstream.com/hc/en-us/articles/1500003510301-Deposco-Enable-API-Access
+    type: IntegrationGuide
+    note: DropStream guide on enabling Deposco API access (tenant code, per-merchant username/password).
+  - url: https://help.extensiv.com/366939-deposco/1624749-setting-up-deposco
+    type: IntegrationGuide
+    note: Extensiv setup guide - required params (Tenant Code, Deposco URL, API Username/Password, Business Unit); credentials from account manager.
+  - url: https://parabola.io/docs/product/integration/deposco
+    type: IntegrationGuide
+    note: Parabola integration referencing OAuth 2.0 and Developer Portal application flow.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on Deposco's own API, and the public
+    integration surface is request/response REST scoped per tenant. No AsyncAPI
+    document was created because there is no server-push transport on Deposco's
+    own API to model, and no OpenAPI document was fabricated because the
+    authoritative reference is gated behind the Developer Portal and scoped to
+    each customer instance.
