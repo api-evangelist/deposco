@@ -115,6 +115,8 @@ apis:
     to retrieve shipment and tracking detail for a customer order. Endpoints are
     modeled from public integration documentation; access is gated per tenant.
 common:
+- type: DomainSecurity
+  url: security/deposco-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/deposco
 - type: Website
