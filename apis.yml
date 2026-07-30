@@ -12,7 +12,19 @@ description: Deposco is a cloud supply chain execution platform combining order
   scoped by tenant code and business unit. API access is provisioned per customer
   through a Deposco account manager rather than through open self-service signup,
   and Deposco also ships 150+ pre-built connectors and EDI integrations.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Paid
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/deposco.png
 tags:
 - Supply Chain
 - Warehouse Management
