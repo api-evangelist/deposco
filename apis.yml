@@ -34,6 +34,17 @@ tags:
 - Fulfillment
 - Inventory
 - Logistics
+- E-Commerce
+- 3PL
+tags_raw:
+- Supply Chain
+- Warehouse Management
+- WMS
+- Order Management
+- OMS
+- Fulfillment
+- Inventory
+- Logistics
 - Ecommerce
 - 3PL
 created: '2026-07-04'
@@ -43,6 +54,10 @@ apis:
 - aid: deposco:deposco-customer-orders-api
   name: Deposco Customer Orders API
   tags:
+  - Order
+  - Order Management
+  - Fulfillment
+  tags_raw:
   - Orders
   - Order Management
   - Fulfillment
@@ -78,6 +93,11 @@ apis:
 - aid: deposco:deposco-items-api
   name: Deposco Items API
   tags:
+  - Item
+  - Product
+  - SKU
+  - Catalog
+  tags_raw:
   - Items
   - Products
   - SKU
@@ -95,6 +115,11 @@ apis:
 - aid: deposco:deposco-inventory-api
   name: Deposco Inventory API
   tags:
+  - Inventory
+  - Stock
+  - Facilities
+  - Location
+  tags_raw:
   - Inventory
   - Stock
   - Facility
