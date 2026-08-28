@@ -12,6 +12,17 @@ description: Deposco is a cloud supply chain execution platform combining order
   scoped by tenant code and business unit. API access is provisioned per customer
   through a Deposco account manager rather than through open self-service signup,
   and Deposco also ships 150+ pre-built connectors and EDI integrations.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: unknown
