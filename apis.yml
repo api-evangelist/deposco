@@ -128,7 +128,7 @@ apis:
   tags:
   - Inventory
   - Stock
-  - Facility
+  - Facilities
   - Location
   tags_raw:
   - Inventory
