@@ -44,3 +44,17 @@ sources:
   note: Third-party review referencing subscription pricing starting around $1,000+.
 - url: https://developer.deposco.com/
   note: Developer Portal where OAuth applications and API credentials are managed.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  units: []
+  plans:
+  - name: Custom Subscription
+    access: other
+    model: negotiated
+    model_how: derived
+    units:
+    - other
+    periods: []
