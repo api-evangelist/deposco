@@ -1,0 +1,31 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/deposco/integrations
+- https://n8n.io/integrations/deposco/
+- https://composio.dev/toolkits/deposco
+- https://monid.ai/tools/deposco
+checked:
+- https://composio.dev/toolkits/deposco
+- https://monid.ai/tools/deposco
+- https://n8n.io/integrations/deposco/
+- https://zapier.com/apps/deposco/integrations
+summary: null
+marketplace_apps: []
+edges:
+- partner_name: shipmonk
+  partner: shipmonk
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/shipmonk/blob/main/openapi/shipmonk-returns-api-openapi.yml
+  contract_reference:
+    repo: shipmonk
+    spec_file: shipmonk-returns-api-openapi.yml
+    value: deposco
+    property: components.schemas.ShipMonk_Warehouse_Returns_Enum_ReturnEntitySource
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+templates: []
