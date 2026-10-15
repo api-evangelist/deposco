@@ -21,3 +21,29 @@
     detected: '2026-10-12'
   status: not-a-workflow
   arazzo: null
+- slug: deposco-sps-commerce
+  label: SPS Commerce
+  partner: sps-commerce
+  partner_name: SPS Commerce
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    role: sps-integration-partner
+    registered_name: Deposco, Inc.
+    website: http://deposco.com/
+    matched_domain: deposco.com
+    matched_by: domain
+    business_types:
+    - Software Provider
+    signal_note: 'participation only: a directory listing, never a count'
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
