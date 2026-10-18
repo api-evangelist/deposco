@@ -71,5 +71,5 @@
     - connectors/applications/deposco
     vendor_link: https://deposco.com/
     builder: Fivetran
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
