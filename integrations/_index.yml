@@ -44,7 +44,7 @@
     - Software Provider
     signal_note: 'participation only: a directory listing, never a count'
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: deposco-fivetran
@@ -71,5 +71,17 @@
     - connectors/applications/deposco
     vendor_link: https://deposco.com/
     builder: Fivetran
+  status: not-a-workflow
+  arazzo: null
+- slug: deposco-amazon-selling-partner-appstore
+  label: Amazon Selling Partner Appstore
+  partner: amazon-seller-central
+  partner_name: Amazon Selling Partner Appstore
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://sellercentral.amazon.com/selling-partner-appstore/dp/amzn1.sellerapps.app.243b80f3-25a2-40f6-b824-a4aa3e2c550e
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
