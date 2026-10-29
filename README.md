@@ -1,4 +1,4 @@
-# Deposco (deposco)
+# Deposco
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,93 +64,95 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Deposco is a cloud supply chain execution platform combining order management (OMS) and warehouse management (WMS) for retailers, brands, 3PLs, and DTC ecommerce sellers. Its Bright Suite gives real-time visibility into inventory, orders, and shipments across the fulfillment lifecycle - receiving, putaway, picking, packing, and shipping. Deposco integrates through a REST API exposed on its Developer Portal ([developer.deposco.com](https://developer.deposco.com/)) using resource paths under `/integration/{code}/`, secured with OAuth 2.0 / per-merchant API credentials and scoped by tenant code and business unit.
+Deposco is a cloud supply chain execution platform combining order management (OMS) and warehouse management (WMS) for retailers, brands, 3PLs, and DTC ecommerce sellers. Its Bright Suite gives real-time visibility into inventory, orders, and shipments across the fulfillment lifecycle - receiving, putaway, picking, packing, and shipping. Deposco integrates through a REST API exposed on its Developer Portal (developer.deposco.com) using resource paths under /integration/{code}/, secured with OAuth 2.0 / per-merchant API credentials and scoped by tenant code and business unit. API access is provisioned per customer through a Deposco account manager rather than through open self-service signup, and Deposco also ships 150+ pre-built connectors and EDI integrations.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/deposco/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/deposco/refs/heads/main/apis.yml)
+**Areas:** Supply Chain · Warehouse Management · WMS · Order Management · OMS · Fulfillment · Inventory · Logistics · E-Commerce · 3PL
 
-## Access Model (Read First)
+## Deposco on APIs.io
 
-Deposco's API is **real but gated**. Deposco runs a genuine public Developer Portal with API reference documentation, but API access is **not open self-service**:
+Everything profiled for Deposco is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/deposco/](https://apis.io/providers/deposco/)** — or go straight to one of the APIs or properties below.
 
-- You need an active Deposco subscription.
-- Credentials - **Tenant Code**, **API Username**, **API Password**, and **Business Unit** - are issued **per merchant by a Deposco account manager**.
-- OAuth 2.0 applications (Client ID / Client Secret) are created and managed inside the Developer Portal once access is granted.
-- The API **base host is instance-specific** (per tenant), e.g. `https://{instance}.deposco.com/integration/{code}`.
+### APIs (5)
 
-Because the authoritative endpoint reference lives behind the gated Developer Portal and is scoped to each tenant, the APIs and endpoints below are **modeled from publicly visible third-party integration documentation** (Techdinamics, DropStream, Extensiv, Parabola). Exact paths, request/response schemas, and the base host should be confirmed against a provisioned Deposco instance. No OpenAPI document was fabricated for this reason.
+- [Deposco Customer Orders API](https://apis.io/apis/deposco/deposco-customer-orders-api/) — Import and query customer (sales) orders for fulfillment. Modeled from Deposco integration references - PUT…
+- [Deposco Purchase Orders API](https://apis.io/apis/deposco/deposco-purchase-orders-api/) — Create and search purchase orders for inbound inventory. Modeled from Deposco integration references - PUT /orders/Purchase Order/{orderNumber}, POST…
+- [Deposco Items API](https://apis.io/apis/deposco/deposco-items-api/) — Create and update item (SKU) master data. Modeled from Deposco integration references - PUT /items/{itemNumber} for a single item and POST /items for bulk…
+- [Deposco Inventory API](https://apis.io/apis/deposco/deposco-inventory-api/) — Retrieve real-time inventory by facility and location. Modeled from Deposco integration references - GET…
+- [Deposco Shipments API](https://apis.io/apis/deposco/deposco-shipments-api/) — Search outbound shipments produced by fulfillment. Modeled from Deposco integration references - GET…
 
-Deposco also ships **150+ pre-built connectors and EDI integrations**, so many teams integrate without building directly against the API.
+### Published properties
 
-## Tags
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Supply Chain
-- Warehouse Management (WMS)
-- Order Management (OMS)
-- Fulfillment
-- Inventory
-- Logistics
-- Ecommerce
-- 3PL
+#### Security (1)
 
-## Timestamps
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Created:** 2026-07-04
-- **Modified:** 2026-07-04
+- [Deposco Domain Security](https://apis.io/security/deposco/deposco-domain-security/)
 
-## APIs (Endpoints Modeled)
+#### Plans and pricing (1)
 
-### Deposco Customer Orders API
+Published plans, tiers and prices.
 
-Import and query customer (sales) orders for fulfillment - `PUT /import/{businessUnit}/customerOrder/{orderNumber}` to create/update an order, and `GET /search/CoHeader` / `GET /search/shipment` to look up order status and resulting shipments.
+- [Deposco Plans Pricing](https://apis.io/plans/deposco/deposco-plans-pricing/)
 
-- **Documentation:** [https://developer.deposco.com/](https://developer.deposco.com/)
-- **Base URL (modeled):** `https://{instance}.deposco.com/integration/{code}`
+## Where to find this API
 
-### Deposco Purchase Orders API
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Create and search purchase orders for inbound inventory - `PUT /orders/Purchase Order/{orderNumber}`, `POST /orders`, and `GET /search/Order?otherReferenceNumber={externalOrderNumber}`.
-
-- **Documentation:** [https://developer.deposco.com/](https://developer.deposco.com/)
-- **Base URL (modeled):** `https://{instance}.deposco.com/integration/{code}`
-
-### Deposco Items API
-
-Create and update item (SKU) master data - `PUT /items/{itemNumber}` for a single item and `POST /items` for bulk imports.
-
-- **Documentation:** [https://developer.deposco.com/](https://developer.deposco.com/)
-- **Base URL (modeled):** `https://{instance}.deposco.com/integration/{code}`
-
-### Deposco Inventory API
-
-Retrieve real-time inventory by facility and location - `GET /inventory/facility/{facilityNumber}/location/{locationNumber}` and `GET /inventory/{businessUnit}/facility/{facilityNumber}/location/{locationNumber}`.
-
-- **Documentation:** [https://developer.deposco.com/](https://developer.deposco.com/)
-- **Base URL (modeled):** `https://{instance}.deposco.com/integration/{code}`
-
-### Deposco Shipments API
-
-Search outbound shipments produced by fulfillment - `GET /search/shipment?orderHeaders.customerOrderNumber={orderNumber}` for shipment and tracking detail on a customer order.
-
-- **Documentation:** [https://developer.deposco.com/](https://developer.deposco.com/)
-- **Base URL (modeled):** `https://{instance}.deposco.com/integration/{code}`
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/deposco)
 - [Website](https://deposco.com/)
 - [Documentation](https://developer.deposco.com/)
-- [Plans](plans/deposco-plans-pricing.yml)
-- [Blog](https://blog.deposco.com/)
+- [Blog](https://deposco.com/blog/)
 
-## Pricing
+## API Evangelist rating
 
-Deposco does not publish public, self-service pricing. It is sold as a subscription SaaS through a sales-led motion; API access is included with a subscription and provisioned per merchant. See [plans/deposco-plans-pricing.yml](plans/deposco-plans-pricing.yml). Contact Deposco for a current quote.
+**Kin Score 7.3** — minimal · rubric 0.24.0 · scored 2026-10-17
 
-## WebSocket
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 2.4 |
+| Access clarity | 5.3 |
 
-No documented public WebSocket API. Deposco's integration surface is request/response REST over HTTPS. See [review.yml](review.yml).
+**Agent readiness 0.0** — human-only
 
-## Maintainers
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/deposco/](https://apis.io/providers/deposco/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Deposco: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/deposco/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
